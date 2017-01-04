@@ -1,0 +1,33 @@
+<div class="jumbotron">
+    <h1>{{title}}</h1>
+    <p>See which bars are hoppin' tonight and RSVP ahead of time!
+Remember: take a cab and drink responsibly.</p>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Enter location..." (keyup.enter)="search(location.value)" #location>
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" (click)="search(location.value)">Go!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="working" class="well">
+    <p class="text-center"><i class="fa fa-spinner fa-pulse fa-5x" aria-hidden="true"></i></p>
+</div>
+
+<div class="media" *ngFor="let bar of bars">
+    <a href="#{{bar.id}}"></a>
+    <div class="media-left">
+        <img class="media-object" src="{{bar.image_url}}" alt="{{bar.name}}">
+    </div>
+    <div class="media-body">
+        <div style="display: inline-flex;">
+            <h4>{{bar.name}}</h4> 
+            <button class="btn btn-primary btn-xs btn-going" (click)="attend(bar)"><span class="badge">{{bar.assistants}}</span> Going</button>
+        </div>
+        <p>"{{bar.review}}"</p>
+    </div>
+</div>
