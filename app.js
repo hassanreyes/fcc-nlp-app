@@ -14,7 +14,7 @@ var app             = express(),
     router          = express.Router();
     
 // Load enviroment variables from .env file
-require('dotenv').config();
+//require('dotenv').config();
 
 //Connect to Nightlife Planner DB
 var dbUrl = process.env.MONGODB_URI || "mongodb://localhost:27017/nlf";
