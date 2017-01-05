@@ -54,7 +54,7 @@ export class Auth {
         const headers = new Headers({'Content-Type': 'application/json'});
         const body = JSON.stringify({ user: user });
         console.log("posting login: " + body);
-        this.http.post('https://camper-app-project-hassanreyes.c9users.io/login', body, { headers: headers })
+        this.http.post('https://fcc-hr-nlp-app.herokuapp.com//login', body, { headers: headers })
           .map((res: Response) => {
             console.log("login Response: " + res.json());
           })
@@ -69,7 +69,7 @@ export class Auth {
       auth: {
         params: {location: location ? location : "" },
         redirect: false /*,
-        redirectUrl: "https://camper-app-project-hassanreyes.c9users.io/login",
+        redirectUrl: "https://fcc-hr-nlp-app.herokuapp.com/login",
         responseMode: "form_post"*/
       }
     });

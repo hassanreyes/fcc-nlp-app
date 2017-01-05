@@ -12,7 +12,7 @@ export class Bar {
 
 @Injectable()
 export class BarService {
-  public static BaseUrl: string = "https://camper-app-project-hassanreyes.c9users.io/bars";
+  public static BaseUrl: string = "https://fcc-hr-nlp-app.herokuapp.com/bars";
 
   constructor(private http: Http) { }
   
