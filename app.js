@@ -7,8 +7,6 @@ var mongoose        = require("mongoose");
 var bodyParser      = require('body-parser');
 var express_session = require('express-session');
 var routes          = require('./app/routes');
-var passport        = require("passport"), 
-    passportCfg     = require("./passport");
     
 var app             = express(),
     router          = express.Router();
@@ -33,14 +31,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(cookieParser());
 app.use(express_session({ secret: 'fcc-nlp-app-secret', resave: true, saveUninitialized: true }));
 
-// Initialize Passport and restore authentication state, if any, from the
-// session.
-app.use(passport.initialize());
-app.use(passport.session());
-
-//Passport configuration
-passportCfg(app, passport, mongoose);
-
 //X-Origin Middleware 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -49,7 +39,7 @@ app.use((req, res, next) => {
   next();
 });
 
-routes(app, router, passport);
+routes(app, router, null);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
