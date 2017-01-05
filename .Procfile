@@ -1,0 +1,1 @@
+web: node ./bin/www --host $IP --port $PORT
